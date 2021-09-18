@@ -1,4 +1,5 @@
 import { PLACE } from '../types';
+import { ROTATE } from '../types';
 
 const initialState = {
   x: 2,
@@ -15,6 +16,13 @@ export default function robot(state = initialState, action) {
         y: action.payload.y,
         facing: action.payload.facing,
       };
+
+    case ROTATE:
+      return {
+        ...state,
+        facing: action.payload.facing,
+      };
+
     default:
       return state;
   }

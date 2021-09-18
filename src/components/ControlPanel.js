@@ -1,17 +1,68 @@
+/* eslint-disable default-case */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FiRotateCcw, FiRotateCw } from 'react-icons/fi';
-import { place } from '../redux/actions/robot';
+import { place, rotate } from '../redux/actions/robot';
 
 const ControPanel = ({ dispatch }) => {
   const [x, setX] = useState(2);
   const [y, setY] = useState(2);
   const [facing, setFacing] = useState('SOUTH');
 
-  console.log(x, y, facing);
+  console.log(facing);
 
   const handlePlaceSubmit = () => {
     dispatch(place(x, y, facing));
+  };
+
+  const handleRotateLeft = () => {
+    switch (facing) {
+      case 'NORTH': {
+        setFacing('WEST');
+        dispatch(rotate('WEST'));
+        break;
+      }
+      case 'WEST': {
+        setFacing('SOUTH');
+        dispatch(rotate('SOUTH'));
+        break;
+      }
+      case 'SOUTH': {
+        setFacing('EAST');
+        dispatch(rotate('EAST'));
+        break;
+      }
+      case 'EAST': {
+        setFacing('NORTH');
+        dispatch(rotate('NORTH'));
+        break;
+      }
+    }
+  };
+
+  const handleRotateRight = () => {
+    switch (facing) {
+      case 'NORTH': {
+        setFacing('EAST');
+        dispatch(rotate('EAST'));
+        break;
+      }
+      case 'EAST': {
+        setFacing('SOUTH');
+        dispatch(rotate('SOUTH'));
+        break;
+      }
+      case 'SOUTH': {
+        setFacing('WEST');
+        dispatch(rotate('WEST'));
+        break;
+      }
+      case 'WEST': {
+        setFacing('NORTH');
+        dispatch(rotate('NORTH'));
+        break;
+      }
+    }
   };
 
   return (
@@ -35,11 +86,7 @@ const ControPanel = ({ dispatch }) => {
           <option value="4">4</option>
         </select>
         <span>Facing: </span>
-        <select
-          name="facing"
-          value={facing}
-          onChange={e => setFacing(e.target.value)}
-        >
+        <select name="facing" onChange={e => setFacing(e.target.value)}>
           <option value="NORTH">North</option>
           <option value="EAST">East</option>
           <option value="SOUTH">South</option>
@@ -54,10 +101,16 @@ const ControPanel = ({ dispatch }) => {
       </div>
       <div className="control-panel__row">
         <p className="control-panel__title">Rotate</p>
-        <button className="btn control-panel__btn control-panel__btn--rotate">
+        <button
+          onClick={handleRotateLeft}
+          className="btn control-panel__btn control-panel__btn--rotate"
+        >
           <FiRotateCcw />
         </button>
-        <button className="btn control-panel__btn control-panel__btn--rotate">
+        <button
+          onClick={handleRotateRight}
+          className="btn control-panel__btn control-panel__btn--rotate"
+        >
           <FiRotateCw />
         </button>
       </div>
