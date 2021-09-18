@@ -4,4 +4,20 @@
   &__img {
     width: 6rem;
   }
+
+  &--NORTH {
+    transform: perspective(400px) rotateX(45deg);
+  }
+
+  &--EAST {
+    transform: perspective(400px) rotateY(45deg);
+  }
+
+  &--SOUTH {
+    transform: perspective(400px) rotateX(-25deg);
+  }
+
+  &--WEST {
+    transform: perspective(400px) rotateY(-45deg);
+  }
 }

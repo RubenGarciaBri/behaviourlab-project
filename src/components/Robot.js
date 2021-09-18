@@ -12,7 +12,7 @@ const Robot = ({ x, y, facing }) => {
 
   return (
     <div
-      className="robot"
+      className={`robot robot--${facing}`}
       style={{
         position: 'absolute',
         top: `${baseY - y * distance}px`,
@@ -20,11 +20,7 @@ const Robot = ({ x, y, facing }) => {
         transition: 'all .3s',
       }}
     >
-      <img
-        src={robotImg}
-        className="robot__img"
-        alt="An illustration of a robot"
-      />
+      <img src={robotImg} className="robot__img" alt="An image of a robot" />
     </div>
   );
 };
