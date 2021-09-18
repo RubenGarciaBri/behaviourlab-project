@@ -1,0 +1,48 @@
+.control-panel {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  margin-bottom: 3.5rem;
+  font-size: 1.6rem;
+
+  &__row {
+    & select {
+      margin-right: 2rem;
+      border-color: #ccc;
+    }
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__btn {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0.7rem 0;
+
+    &:hover {
+      background-color: #dedede;
+    }
+
+    &--place {
+      margin-top: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    &--rotate {
+      margin-right: 1rem;
+      padding: 1.2rem;
+    }
+
+    &--move {
+      margin-top: 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+
+    &--report {
+    }
+  }
+}

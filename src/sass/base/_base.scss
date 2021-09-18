@@ -1,0 +1,44 @@
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.7;
+  color: #333;
+  background: #fff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  display: inline-block;
+  color: #777;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+.main-container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+span {
+  white-space: nowrap;
+}

@@ -1,0 +1,25 @@
+.grid {
+  display: inline-block;
+  position: relative;
+  min-width: 52rem;
+  min-height: 52rem;
+
+  &__row {
+    &:last-child {
+      margin-bottom: -0.5rem;
+    }
+
+    &-item {
+      display: inline-block;
+      width: 10rem;
+      height: 10rem;
+      // border-top: solid #8bc5ec3d 2px;
+      // border-right: solid #8bc5ec3d 2px;
+      background: #fff;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

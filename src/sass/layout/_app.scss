@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+
+  &__container {
+    max-width: 120rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-left {
+      width: 70%;
+    }
+
+    &-right {
+      margin-left: 10rem;
+      width: 30%;
+    }
+  }
+}
