@@ -10,16 +10,10 @@ const App = () => {
   const [y, setY] = useState(2);
   const [facing, setFacing] = useState('SOUTH');
 
-  console.log(x, y);
-
   const robotPosition = {
     x,
     y,
   };
-
-  useEffect(() => {
-    window.addEventListener('keyup', handleKeyPress);
-  }, []);
 
   const place = (x, y, facing) => {
     console.log(`Horizontal: ${x}, Vertical: ${y}, Facing: ${facing}`);

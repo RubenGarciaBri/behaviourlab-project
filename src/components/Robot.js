@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import robotImg from '../img/robot.png';
 
-const Robot = ({ robotPosition: { x, y } }) => {
+const Robot = ({ x, y, facing }) => {
   // Default position values at (0, 0) in pixels
   const baseX = 20;
   const baseY = 440;
@@ -28,4 +29,12 @@ const Robot = ({ robotPosition: { x, y } }) => {
   );
 };
 
-export default Robot;
+const mapStateToProps = ({ x, y, facing }) => {
+  return {
+    x,
+    y,
+    facing,
+  };
+};
+
+export default connect(mapStateToProps)(Robot);
