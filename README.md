@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Behaviour Lab Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a little game built in React and Redux as part of a project for a technical interview.
 
-## Available Scripts
+You can place a little robot on a 5x5 grid and give it instructions to move it around without falling off the table.
 
-In the project directory, you can run:
+# How to Run
 
-### `npm start`
+```
+install dependencies
+$ npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+start project
+$ npm start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Technologies used
 
-### `npm test`
+1. React
+1. Redux + Middleware
+1. ES6 Features
+1. React Hooks
+1. SASS and CSS Animations
+1. Toastify for UI notifications
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Assumptions and notes
 
-### `npm run build`
+1. The app is not responsive as there was nothing mentioned in the requirements.
+1. In order to use the rotate, move and report commands, you first must place the robot on the grid by giving it 2 coordinates and a facing direction.
+1. I've added and extra "Block/Unblock" action so the robot triggers an animation when it can no longer move at the edges.
+1. I've used Toastify to show an error notification (HelpBox.js) when the user tries to run a command that is not "Place" at the start of the game.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# See it on the browser
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Play online on this version deployed to Netlify](behaviourlab-project.netlify.app)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Author
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Ruben Garcia Bri** -
+  [Github](https://github.com/RubenGarcia7)
