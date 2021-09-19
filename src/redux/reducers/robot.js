@@ -22,7 +22,6 @@ export default function robot(state = initialState, action) {
         x: action.payload.x,
         y: action.payload.y,
         facing: action.payload.facing,
-        reporting: false,
       };
 
     case ROTATE:
@@ -37,13 +36,12 @@ export default function robot(state = initialState, action) {
         x: action.payload.x,
         y: action.payload.y,
         facing: action.payload.facing,
-        reporting: false,
       };
 
     case REPORT:
       return {
         ...state,
-        reporting: true,
+        reporting: !state.reporting,
       };
 
     case BLOCK:
