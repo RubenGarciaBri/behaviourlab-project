@@ -2,13 +2,16 @@ import { PLACE } from '../types';
 import { ROTATE } from '../types';
 import { MOVE } from '../types';
 import { REPORT } from '../types';
+import { BLOCK } from '../types';
+import { UNBLOCK } from '../types';
 
 const initialState = {
   x: 2,
   y: 2,
   facing: 'SOUTH',
+  isPlaced: true,
   reporting: false,
-  isPlaced: false,
+  block: null,
 };
 
 export default function robot(state = initialState, action) {
@@ -41,6 +44,18 @@ export default function robot(state = initialState, action) {
       return {
         ...state,
         reporting: true,
+      };
+
+    case BLOCK:
+      return {
+        ...state,
+        block: action.payload.direction,
+      };
+
+    case UNBLOCK:
+      return {
+        ...state,
+        block: null,
       };
 
     default:

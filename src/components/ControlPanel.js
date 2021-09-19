@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FiRotateCcw, FiRotateCw } from 'react-icons/fi';
-import { place, rotate, move, report } from '../redux/actions/robot';
+import { place, rotate, move, report, block } from '../redux/actions/robot';
 
 const ControPanel = ({ dispatch, reduxState }) => {
   const [x, setX] = useState(2);
@@ -64,6 +64,28 @@ const ControPanel = ({ dispatch, reduxState }) => {
   };
 
   const handleMove = () => {
+    if (reduxState.facing === 'NORTH' && reduxState.y === 4) {
+      dispatch(block('top'));
+      console.log('Unable to move north');
+      return;
+    } else if (reduxState.facing === 'EAST' && reduxState.x === 4) {
+      dispatch(block('right'));
+      console.log('Unable to move east');
+      return;
+    } else if (reduxState.facing === 'SOUTH' && reduxState.y === 0) {
+      dispatch(block('down'));
+      console.log('Unable to move south');
+      return;
+    } else if (reduxState.facing === 'WEST' && reduxState.x === 0) {
+      dispatch(block('left'));
+      console.log('Unable to move west');
+      return;
+    } else {
+      moveRobot();
+    }
+  };
+
+  const moveRobot = () => {
     let newX, newY;
 
     if (reduxState.facing === 'NORTH') {

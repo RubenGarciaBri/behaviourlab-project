@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import robotImg from '../img/robot.png';
 
-const Robot = ({ x, y, facing }) => {
+const Robot = ({ x, y, facing, isPlaced, block }) => {
   // Default position values at (0, 0) in pixels
   const baseX = 20;
   const baseY = 440;
@@ -12,8 +12,13 @@ const Robot = ({ x, y, facing }) => {
 
   return (
     <div
-      className={`robot robot--${facing}`}
+      className={
+        block === null
+          ? `robot robot--${facing}`
+          : `robot robot--${facing} robot--animated-${block}`
+      }
       style={{
+        display: `${isPlaced === false ? 'none' : 'block'}`,
         position: 'absolute',
         top: `${baseY - y * distance}px`,
         left: `${baseX + x * distance}px`,
@@ -25,11 +30,13 @@ const Robot = ({ x, y, facing }) => {
   );
 };
 
-const mapStateToProps = ({ x, y, facing }) => {
+const mapStateToProps = ({ x, y, facing, isPlaced, block }) => {
   return {
     x,
     y,
     facing,
+    block,
+    isPlaced,
   };
 };
 

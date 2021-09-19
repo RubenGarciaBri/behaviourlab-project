@@ -2,6 +2,8 @@ import { PLACE } from '../types';
 import { ROTATE } from '../types';
 import { MOVE } from '../types';
 import { REPORT } from '../types';
+import { BLOCK } from '../types';
+import { UNBLOCK } from '../types';
 
 export const place = (x, y, facing) => dispatch => {
   dispatch({
@@ -38,4 +40,22 @@ export const report = () => dispatch => {
   dispatch({
     type: REPORT,
   });
+};
+
+export const block = direction => dispatch => {
+  dispatch({
+    type: BLOCK,
+    payload: {
+      direction,
+    },
+  });
+
+  setTimeout(() => {
+    dispatch({
+      type: UNBLOCK,
+      payload: {
+        direction,
+      },
+    });
+  }, 200);
 };

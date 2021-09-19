@@ -1,5 +1,6 @@
 .robot {
   transition: all 0.3s;
+  animation-timing-function: ease;
 
   &__img {
     width: 6rem;
@@ -19,5 +20,70 @@
 
   &--WEST {
     transform: perspective(400px) rotateY(-45deg);
+  }
+
+  &--animated-top {
+    animation: bounceTop 0.2s;
+  }
+
+  &--animated-right {
+    animation: bounceRight 0.2s;
+  }
+
+  &--animated-down {
+    animation: bounceDown 0.2s;
+  }
+
+  &--animated-left {
+    animation: bounceLeft 0.2s;
+  }
+
+  // Animations
+  @keyframes bounceTop {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes bounceRight {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(15px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes bounceDown {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes bounceLeft {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-15px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
   }
 }
