@@ -1,6 +1,7 @@
 /* eslint-disable default-case */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import HelpBox from './HelpBox';
 import { FiRotateCcw, FiRotateCw } from 'react-icons/fi';
 import { place, rotate, move, report, block } from '../redux/actions/robot';
 import { toast } from 'react-toastify';
@@ -125,6 +126,7 @@ const ControPanel = ({ dispatch, reduxState }) => {
 
   return (
     <div className="control-panel shadow-smooth">
+      <HelpBox />
       <div className="control-panel__row">
         <p className="control-panel__title">Place</p>
         <span>X: </span>

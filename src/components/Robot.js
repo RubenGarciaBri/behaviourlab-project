@@ -26,7 +26,7 @@ const Robot = ({ x, y, facing, isPlaced, block }) => {
         transition: 'all .3s',
       }}
     >
-      <img src={robotImg} className="robot__img" alt="An image of a robot" />
+      <img src={robotImg} className="robot__img" alt="A little robot" />
     </div>
   );
 };

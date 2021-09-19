@@ -5,10 +5,14 @@ const OutputPanel = ({ x, y, facing, reporting }) => {
   return (
     <div className="output-panel shadow-smooth">
       <p className="output-panel__title">Robot Location:</p>
-      <p className="output-panel__output">
-        X: <span>{reporting === true ? `${x}` : ''}</span>
-        Y: <span>{reporting === true ? `${y}` : ''}</span>
-        Facing: <span>{reporting === true ? `${facing}` : ''}</span>
+      <p
+        className={`output-panel__output ${
+          reporting === false ? 'output-panel__output--hidden' : ''
+        }`}
+      >
+        X: <span>{x}</span>
+        Y: <span>{y}</span>
+        Facing: <span>{facing}</span>
       </p>
     </div>
   );

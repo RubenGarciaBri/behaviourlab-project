@@ -1,15 +1,17 @@
 .help-box {
+  opacity: 1;
   position: absolute;
-  top: 1rem;
-  right: 6rem;
-  max-width: 35rem;
+  top: -6.8rem;
+  right: -10rem;
+  width: 35rem;
   background-color: #f68084;
   border-radius: 1rem;
   padding: 1.5rem 2rem;
   box-shadow: 0 3px 8px 0 rgba(34, 36, 38, 0.2);
 
   &--hidden {
-    display: none;
+    opacity: 0;
+    transition: all 0.2s;
   }
 
   & p {

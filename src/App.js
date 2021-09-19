@@ -1,15 +1,13 @@
 /* eslint-disable default-case */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Grid from './components/Grid';
 import ControlPanel from './components/ControlPanel';
 import OutputPanel from './components/OutputPanel';
-import HelpBox from './components/HelpBox';
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
     <div className="app">
-      <HelpBox />
       <div className="app__container">
         <div className="app__container-left">
           <Grid />

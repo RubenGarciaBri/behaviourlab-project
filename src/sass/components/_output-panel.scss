@@ -10,6 +10,10 @@
 
   &__output {
     font-size: 1.6rem;
+
+    &--hidden {
+      display: none;
+    }
   }
 
   span {
