@@ -2,14 +2,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FiRotateCcw, FiRotateCw } from 'react-icons/fi';
-import { place, rotate } from '../redux/actions/robot';
+import { place, rotate, move } from '../redux/actions/robot';
 
-const ControPanel = ({ dispatch }) => {
+const ControPanel = ({ dispatch, reduxState }) => {
   const [x, setX] = useState(2);
   const [y, setY] = useState(2);
   const [facing, setFacing] = useState('SOUTH');
-
-  console.log(facing);
 
   const handlePlaceSubmit = () => {
     dispatch(place(x, y, facing));
@@ -65,6 +63,26 @@ const ControPanel = ({ dispatch }) => {
     }
   };
 
+  const handleMove = () => {
+    let newX, newY;
+
+    console.log(reduxState);
+
+    if (reduxState.facing === 'NORTH') {
+      newY = reduxState.y + 1;
+      dispatch(move(reduxState.x, newY, 'NORTH'));
+    } else if (reduxState.facing === 'EAST') {
+      newX = reduxState.x + 1;
+      dispatch(move(newX, reduxState.y, 'EAST'));
+    } else if (reduxState.facing === 'SOUTH') {
+      newY = reduxState.y - 1;
+      dispatch(move(reduxState.x, newY, 'SOUTH'));
+    } else {
+      newX = reduxState.x - 1;
+      dispatch(move(newX, reduxState.y, 'WEST'));
+    }
+  };
+
   return (
     <div className="control-panel shadow-smooth">
       <div className="control-panel__row">
@@ -86,7 +104,11 @@ const ControPanel = ({ dispatch }) => {
           <option value="4">4</option>
         </select>
         <span>Facing: </span>
-        <select name="facing" onChange={e => setFacing(e.target.value)}>
+        <select
+          name="facing"
+          value={facing}
+          onChange={e => setFacing(e.target.value)}
+        >
           <option value="NORTH">North</option>
           <option value="EAST">East</option>
           <option value="SOUTH">South</option>
@@ -115,7 +137,10 @@ const ControPanel = ({ dispatch }) => {
         </button>
       </div>
       <div className="control-panel__row">
-        <button className="btn control-panel__btn control-panel__btn--move">
+        <button
+          onClick={handleMove}
+          className="btn control-panel__btn control-panel__btn--move"
+        >
           Move
         </button>
       </div>
@@ -128,8 +153,15 @@ const ControPanel = ({ dispatch }) => {
   );
 };
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = ({ x, y, facing }) => {
+  const reduxState = {
+    x,
+    y,
+    facing,
+  };
+  return {
+    reduxState,
+  };
 };
 
 export default connect(mapStateToProps)(ControPanel);
