@@ -1,6 +1,7 @@
 import { PLACE } from '../types';
 import { ROTATE } from '../types';
 import { MOVE } from '../types';
+import { REPORT } from '../types';
 
 export const place = (x, y, facing) => dispatch => {
   dispatch({
@@ -30,5 +31,11 @@ export const move = (x, y, facing) => dispatch => {
       y,
       facing,
     },
+  });
+};
+
+export const report = () => dispatch => {
+  dispatch({
+    type: REPORT,
   });
 };

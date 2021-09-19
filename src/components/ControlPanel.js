@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { FiRotateCcw, FiRotateCw } from 'react-icons/fi';
-import { place, rotate, move } from '../redux/actions/robot';
+import { place, rotate, move, report } from '../redux/actions/robot';
 
 const ControPanel = ({ dispatch, reduxState }) => {
   const [x, setX] = useState(2);
@@ -66,8 +66,6 @@ const ControPanel = ({ dispatch, reduxState }) => {
   const handleMove = () => {
     let newX, newY;
 
-    console.log(reduxState);
-
     if (reduxState.facing === 'NORTH') {
       newY = reduxState.y + 1;
       dispatch(move(reduxState.x, newY, 'NORTH'));
@@ -83,11 +81,15 @@ const ControPanel = ({ dispatch, reduxState }) => {
     }
   };
 
+  const handleReport = () => {
+    dispatch(report());
+  };
+
   return (
     <div className="control-panel shadow-smooth">
       <div className="control-panel__row">
         <p className="control-panel__title">Place</p>
-        <span>x: </span>
+        <span>X: </span>
         <select name="x" value={x} onChange={e => setX(e.target.value)}>
           <option value="0">0</option>
           <option value="1">1</option>
@@ -95,7 +97,7 @@ const ControPanel = ({ dispatch, reduxState }) => {
           <option value="3">3</option>
           <option value="4">4</option>
         </select>
-        <span>y: </span>
+        <span>Y: </span>
         <select name="y" value={y} onChange={e => setY(e.target.value)}>
           <option value="0">0</option>
           <option value="1">1</option>
@@ -145,7 +147,10 @@ const ControPanel = ({ dispatch, reduxState }) => {
         </button>
       </div>
       <div className="control-panel__row">
-        <button className="btn control-panel__btn control-panel__btn--report">
+        <button
+          onClick={handleReport}
+          className="btn control-panel__btn control-panel__btn--report"
+        >
           Report
         </button>
       </div>
