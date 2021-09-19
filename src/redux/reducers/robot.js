@@ -23,12 +23,14 @@ export default function robot(state = initialState, action) {
         y: action.payload.y,
         facing: action.payload.facing,
         isPlaced: true,
+        reporting: false,
       };
 
     case ROTATE:
       return {
         ...state,
         facing: action.payload.facing,
+        reporting: false,
       };
 
     case MOVE: {
@@ -36,21 +38,25 @@ export default function robot(state = initialState, action) {
         return {
           ...state,
           y: state.y + 1,
+          reporting: false,
         };
       } else if (action.payload.facing === 'EAST') {
         return {
           ...state,
           x: state.x + 1,
+          reporting: false,
         };
       } else if (action.payload.facing === 'SOUTH') {
         return {
           ...state,
           y: state.y - 1,
+          reporting: false,
         };
       } else {
         return {
           ...state,
           x: state.x - 1,
+          reporting: false,
         };
       }
     }
@@ -58,13 +64,14 @@ export default function robot(state = initialState, action) {
     case REPORT:
       return {
         ...state,
-        reporting: !state.reporting,
+        reporting: true,
       };
 
     case BLOCK:
       return {
         ...state,
         block: action.payload.direction,
+        reporting: false,
       };
 
     case UNBLOCK:
