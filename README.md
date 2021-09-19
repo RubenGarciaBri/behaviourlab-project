@@ -1,8 +1,8 @@
 # Behaviour Lab Project
 
-This is a little game built in React and Redux as part of a project for a technical interview.
+This is a simple game built in React and Redux as part of a project for a technical interview.
 
-You can place a little robot on a 5x5 grid and give it instructions to move it around without falling off the table.
+You can place a robot on a 5x5 grid and give it instructions to move it around without falling off the table.
 
 # How to Run
 
