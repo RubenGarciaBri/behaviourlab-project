@@ -6,11 +6,16 @@ import { BLOCK } from '../types';
 import { UNBLOCK } from '../types';
 
 const initialState = {
+  // Robot's coordinates. The initial values have been manually selected so the robot is located hovering over the ControlPanel component. Once the robot has been placed on the grid, it won't be posible to exceed any values above 4 and below 0.
   x: 8.8,
   y: 3.7,
+  // Robot's facing direction
   facing: 'SOUTH',
+  // Indicates if the robot has been placed on the grid to start the game
   isPlaced: false,
+  // Indicates if the position report command has been triggered
   reporting: false,
+  // Indicates if the robot is facing the edge of the table and in which direction. The robot's component will trigger an animation depending on the direction it's blocked against.
   block: null,
 };
 

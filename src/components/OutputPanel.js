@@ -6,6 +6,7 @@ const OutputPanel = ({ x, y, facing, reporting }) => {
     <div className="output-panel shadow-smooth">
       <p className="output-panel__title">Robot Location:</p>
       <p
+        // Show and hide the robot's location depending on the value of reporting
         className={`output-panel__output ${
           reporting === false ? 'output-panel__output--hidden' : ''
         }`}

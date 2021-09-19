@@ -2,7 +2,7 @@
 import React from 'react';
 import Robot from './Robot';
 
-const Grid = ({ robotPosition }) => {
+const Grid = () => {
   return (
     <div className="grid">
       <Robot />

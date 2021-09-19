@@ -17,6 +17,7 @@ const App = () => {
           <OutputPanel />
         </div>
       </div>
+      {/* UI notifications component and config */}
       <ToastContainer
         limit={1}
         position="bottom-right"
