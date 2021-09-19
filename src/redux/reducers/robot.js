@@ -6,10 +6,10 @@ import { BLOCK } from '../types';
 import { UNBLOCK } from '../types';
 
 const initialState = {
-  x: 2,
-  y: 2,
+  x: 8.8,
+  y: 3.7,
   facing: 'SOUTH',
-  isPlaced: true,
+  isPlaced: false,
   reporting: false,
   block: null,
 };
@@ -22,6 +22,7 @@ export default function robot(state = initialState, action) {
         x: action.payload.x,
         y: action.payload.y,
         facing: action.payload.facing,
+        isPlaced: true,
       };
 
     case ROTATE:

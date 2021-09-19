@@ -13,12 +13,13 @@ const Robot = ({ x, y, facing, isPlaced, block }) => {
   return (
     <div
       className={
-        block === null
+        isPlaced === false
+          ? `robot robot--animated-static`
+          : block === null
           ? `robot robot--${facing}`
           : `robot robot--${facing} robot--animated-${block}`
       }
       style={{
-        display: `${isPlaced === false ? 'none' : 'block'}`,
         position: 'absolute',
         top: `${baseY - y * distance}px`,
         left: `${baseX + x * distance}px`,

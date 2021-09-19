@@ -1,0 +1,31 @@
+.help-box {
+  position: absolute;
+  top: 1rem;
+  right: 6rem;
+  max-width: 35rem;
+  background-color: #f68084;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 3px 8px 0 rgba(34, 36, 38, 0.2);
+
+  &--hidden {
+    display: none;
+  }
+
+  & p {
+    font-size: 1.4rem;
+    color: #fff;
+  }
+
+  &__pointer {
+    height: 25px;
+    width: 25px;
+    background: #f68084;
+    transform: rotate(240deg);
+    border-radius: 0 0 12px 0;
+    margin-top: -22px;
+    position: relative;
+    top: 20px;
+    left: 50px;
+  }
+}

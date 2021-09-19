@@ -5,7 +5,7 @@ import Robot from './Robot';
 const Grid = ({ robotPosition }) => {
   return (
     <div className="grid">
-      <Robot robotPosition={robotPosition} />
+      <Robot />
       <div className="grid__row">
         <div className="grid__row-item"></div>
         <div className="grid__row-item"></div>

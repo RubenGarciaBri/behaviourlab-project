@@ -38,6 +38,11 @@
     animation: bounceLeft 0.2s;
   }
 
+  &--animated-static {
+    animation: bounceTopSlow 1.5s;
+    animation-iteration-count: infinite;
+  }
+
   // Animations
   @keyframes bounceTop {
     0% {
@@ -84,6 +89,18 @@
     }
     100% {
       transform: translateX(0px);
+    }
+  }
+
+  @keyframes bounceTopSlow {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
     }
   }
 }
