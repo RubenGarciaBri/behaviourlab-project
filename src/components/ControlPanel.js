@@ -88,16 +88,12 @@ const ControPanel = ({ dispatch, reduxState }) => {
     } else {
       if (reduxState.facing === 'NORTH' && reduxState.y === 4) {
         dispatch(block('top'));
-        console.log('Unable to move north');
       } else if (reduxState.facing === 'EAST' && reduxState.x === 4) {
         dispatch(block('right'));
-        console.log('Unable to move east');
       } else if (reduxState.facing === 'SOUTH' && reduxState.y === 0) {
         dispatch(block('down'));
-        console.log('Unable to move south');
       } else if (reduxState.facing === 'WEST' && reduxState.x === 0) {
         dispatch(block('left'));
-        console.log('Unable to move west');
       } else {
         moveRobot();
       }

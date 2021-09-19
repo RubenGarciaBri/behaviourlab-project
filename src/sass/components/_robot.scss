@@ -1,6 +1,7 @@
 .robot {
   transition: all 0.3s;
   animation-timing-function: ease;
+  z-index: 9999;
 
   &__img {
     width: 6rem;
