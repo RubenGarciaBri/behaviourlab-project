@@ -51,9 +51,6 @@ export const block = direction => dispatch => {
   setTimeout(() => {
     dispatch({
       type: UNBLOCK,
-      payload: {
-        direction,
-      },
     });
   }, 200);
 };
