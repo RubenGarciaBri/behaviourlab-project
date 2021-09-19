@@ -32,7 +32,7 @@ $ npm start
 
 # See it on the browser
 
-[Play online on this version deployed to Netlify](behaviourlab-project.netlify.app)
+[Play online on this version deployed to Netlify](https://behaviourlab-project.netlify.app/)
 
 # Author
 
