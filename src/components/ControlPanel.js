@@ -11,28 +11,28 @@ const ControPanel = ({ dispatch, reduxState }) => {
   const [y, setY] = useState(2);
   const [facing, setFacing] = useState('SOUTH');
 
-  // Toast Id to prevent duplicates
+  // Toast Id to prevent duplicates.
   const customToastId = 'custom-id-yes';
 
-  // UI error message that shows up if the user performs a command before placing the robot on the grid
+  // UI error message that shows up if the user performs a command before placing the robot on the grid.
   const showToastError = () => {
     toast.error('Please place the robot on the grid first.', {
       toastId: customToastId,
     });
   };
 
-  // Place command - Positions the robot in the desired grid location
+  // Place command - Positions the robot in the desired grid location.
   const handlePlaceSubmit = () => {
     dispatch(place(x, y, facing));
   };
 
-  // Rotate left command - Anticlockwise
+  // Rotate left command - Anticlockwise.
   const handleRotateLeft = () => {
-    // Check if the robot has been placed on the grid
+    // Check if the robot has been placed on the grid.
     if (reduxState.isPlaced === false) {
       showToastError();
     } else {
-      // Update state and submit rotate action with the appropiate direction
+      // Update state and submit rotate action with the appropiate direction.
       switch (facing) {
         case 'NORTH': {
           setFacing('WEST');
@@ -58,14 +58,14 @@ const ControPanel = ({ dispatch, reduxState }) => {
     }
   };
 
-  // Rotate right command - Clockwise
+  // Rotate right command - Clockwise.
   const handleRotateRight = () => {
-    // Check if the robot has been placed on the grid
+    // Check if the robot has been placed on the grid.
     if (reduxState.isPlaced === false) {
       showToastError();
     } else {
       switch (facing) {
-        // Update state and submit rotate action with the appropiate direction
+        // Update state and submit rotate action with the appropiate direction.
         case 'NORTH': {
           setFacing('EAST');
           dispatch(rotate('EAST'));
@@ -92,11 +92,11 @@ const ControPanel = ({ dispatch, reduxState }) => {
 
   // Check if the robot is on one of the edges of the table and submit block action. The block global state property is used by the robot to know which side it's blocked against and perform an animation that shows the user the robot can't move in that direction.
   const handleMove = () => {
-    // Check if the robot has been placed on the grid
+    // Check if the robot has been placed on the grid.
     if (reduxState.isPlaced === false) {
       showToastError();
     } else {
-      // Prevent the robot from exceeding any values above 4 and below 0 so it doesn't fall off the table
+      // Prevent the robot from exceeding any values above 4 and below 0 so it doesn't fall off the table.
       if (reduxState.facing === 'NORTH' && reduxState.y === 4) {
         dispatch(block('top'));
       } else if (reduxState.facing === 'EAST' && reduxState.x === 4) {
@@ -106,13 +106,13 @@ const ControPanel = ({ dispatch, reduxState }) => {
       } else if (reduxState.facing === 'WEST' && reduxState.x === 0) {
         dispatch(block('left'));
       } else {
-        // Move the robot if it's not blocked
+        // Move the robot if it's not blocked.
         moveRobot();
       }
     }
   };
 
-  // Move command - Moves the robot 1 position in the direction it's facing
+  // Move command - Moves the robot 1 position in the direction it's facing.
   const moveRobot = () => {
     if (reduxState.facing === 'NORTH') {
       dispatch(move('NORTH'));
@@ -125,9 +125,9 @@ const ControPanel = ({ dispatch, reduxState }) => {
     }
   };
 
-  // Report command - It shows the robot's coordinates and facing direction on the screen
+  // Report command - It shows the robot's coordinates and facing direction on the screen.
   const handleReport = () => {
-    // Check if the robot has been placed on the grid
+    // Check if the robot has been placed on the grid.
     if (reduxState.isPlaced === false) {
       showToastError();
     } else {
@@ -218,7 +218,7 @@ const ControPanel = ({ dispatch, reduxState }) => {
 };
 
 const mapStateToProps = ({ x, y, facing, isPlaced }) => {
-  // Global state values are retrieved in an object to avoid conflic with the current component's state
+  // Global state values are retrieved in an object to avoid conflic with the current component's state.
   const reduxState = {
     x,
     y,

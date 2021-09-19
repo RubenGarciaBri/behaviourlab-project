@@ -10,6 +10,7 @@ import rootReducer from './redux/reducers/robot';
 import middleware from './redux/middleware';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+// Redux store with redux devtools extension.
 const store = createStore(rootReducer, composeWithDevTools(middleware));
 
 ReactDOM.render(
