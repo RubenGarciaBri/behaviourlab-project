@@ -25,12 +25,10 @@ export const rotate = facing => dispatch => {
   });
 };
 
-export const move = (x, y, facing) => dispatch => {
+export const move = facing => dispatch => {
   dispatch({
     type: MOVE,
     payload: {
-      x,
-      y,
       facing,
     },
   });

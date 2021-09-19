@@ -31,13 +31,29 @@ export default function robot(state = initialState, action) {
         facing: action.payload.facing,
       };
 
-    case MOVE:
-      return {
-        ...state,
-        x: action.payload.x,
-        y: action.payload.y,
-        facing: action.payload.facing,
-      };
+    case MOVE: {
+      if (action.payload.facing === 'NORTH') {
+        return {
+          ...state,
+          y: state.y + 1,
+        };
+      } else if (action.payload.facing === 'EAST') {
+        return {
+          ...state,
+          x: state.x + 1,
+        };
+      } else if (action.payload.facing === 'SOUTH') {
+        return {
+          ...state,
+          y: state.y - 1,
+        };
+      } else {
+        return {
+          ...state,
+          x: state.x - 1,
+        };
+      }
+    }
 
     case REPORT:
       return {

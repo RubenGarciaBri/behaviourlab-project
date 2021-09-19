@@ -104,20 +104,14 @@ const ControPanel = ({ dispatch, reduxState }) => {
   };
 
   const moveRobot = () => {
-    let newX, newY;
-
     if (reduxState.facing === 'NORTH') {
-      newY = reduxState.y + 1;
-      dispatch(move(reduxState.x, newY, 'NORTH'));
+      dispatch(move('NORTH'));
     } else if (reduxState.facing === 'EAST') {
-      newX = reduxState.x + 1;
-      dispatch(move(newX, reduxState.y, 'EAST'));
+      dispatch(move('EAST'));
     } else if (reduxState.facing === 'SOUTH') {
-      newY = reduxState.y - 1;
-      dispatch(move(reduxState.x, newY, 'SOUTH'));
+      dispatch(move('SOUTH'));
     } else {
-      newX = reduxState.x - 1;
-      dispatch(move(newX, reduxState.y, 'WEST'));
+      dispatch(move('WEST'));
     }
   };
 
@@ -134,20 +128,28 @@ const ControPanel = ({ dispatch, reduxState }) => {
       <div className="control-panel__row">
         <p className="control-panel__title">Place</p>
         <span>X: </span>
-        <select name="x" value={x} onChange={e => setX(e.target.value)}>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+        <select
+          name="x"
+          value={x}
+          onChange={e => setX(parseInt(e.target.value))}
+        >
+          <option value={0}>0</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
         </select>
         <span>Y: </span>
-        <select name="y" value={y} onChange={e => setY(e.target.value)}>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+        <select
+          name="y"
+          value={y}
+          onChange={e => setY(parseInt(e.target.value))}
+        >
+          <option value={0}>0</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
         </select>
         <span>Facing: </span>
         <select

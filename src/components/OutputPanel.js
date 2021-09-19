@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 const OutputPanel = ({ x, y, facing, reporting }) => {
@@ -6,7 +6,9 @@ const OutputPanel = ({ x, y, facing, reporting }) => {
     <div className="output-panel shadow-smooth">
       <p className="output-panel__title">Robot Location:</p>
       <p className="output-panel__output">
-        {reporting === true ? `X: ${x}, Y: ${y}, Facing: ${facing}` : ''}
+        X: <span>{reporting === true ? `${x}` : ''}</span>
+        Y: <span>{reporting === true ? `${y}` : ''}</span>
+        Facing: <span>{reporting === true ? `${facing}` : ''}</span>
       </p>
     </div>
   );
